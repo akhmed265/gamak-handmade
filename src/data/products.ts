@@ -1,11 +1,5 @@
 import type { IProduct } from '@/types/product'
 
-// Функция для получения пути к изображению с учетом base URL
-const getImagePath = (path: string): string => {
-  const base = import.meta.env.BASE_URL
-  return `${base}${path.replace(/^\//, '')}`
-}
-
 export const products: IProduct[] = [
   {
     id: '1',

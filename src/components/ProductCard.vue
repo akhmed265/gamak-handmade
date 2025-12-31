@@ -79,7 +79,17 @@ const formattedPrice = computed(() => {
 
 const currentImage = computed(() => {
   const colorImages = props.product.images[selectedColor.value]
-  return colorImages ? colorImages[0] : 'https://via.placeholder.com/400x300?text=Gamak'
+  if (!colorImages || colorImages.length === 0) {
+    return 'https://via.placeholder.com/400x300?text=Gamak'
+  }
+  // Получаем путь с учетом base URL для GitHub Pages
+  const base = import.meta.env.BASE_URL
+  const imagePath = colorImages[0]
+  // Если путь уже абсолютный (начинается с /), добавляем base URL
+  if (imagePath.startsWith('/')) {
+    return `${base}${imagePath.slice(1)}`
+  }
+  return imagePath
 })
 
 const selectColor = (color: string) => {

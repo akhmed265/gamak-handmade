@@ -13,7 +13,7 @@
             :class="{ active: currentImageIndex === index }"
             @click="currentImageIndex = index"
           >
-            <img :src="image" :alt="`${product.title} ${index + 1}`" />
+            <img :src="getImageUrl(image)" :alt="`${product.title} ${index + 1}`" />
           </button>
         </div>
       </div>
@@ -114,9 +114,19 @@ const currentImages = computed(() => {
   return product.value.images[selectedColor.value] || []
 })
 
+const getImageUrl = (imagePath: string): string => {
+  if (!imagePath) return ''
+  const base = import.meta.env.BASE_URL
+  if (imagePath.startsWith('/')) {
+    return `${base}${imagePath.slice(1)}`
+  }
+  return imagePath
+}
+
 const currentMainImage = computed(() => {
   if (currentImages.value.length === 0) return ''
-  return currentImages.value[currentImageIndex.value] || currentImages.value[0]
+  const imagePath = currentImages.value[currentImageIndex.value] || currentImages.value[0]
+  return getImageUrl(imagePath)
 })
 
 const selectColor = (color: string) => {
