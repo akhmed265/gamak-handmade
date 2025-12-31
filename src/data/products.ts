@@ -1,5 +1,11 @@
 import type { IProduct } from '@/types/product'
 
+// Функция для получения пути к изображению с учетом base URL
+const getImagePath = (path: string): string => {
+  const base = import.meta.env.BASE_URL
+  return `${base}${path.replace(/^\//, '')}`
+}
+
 export const products: IProduct[] = [
   {
     id: '1',
@@ -11,20 +17,24 @@ export const products: IProduct[] = [
     colors: ['#C9A876', '#8B7355', '#D4B896', '#A0826D'],
     images: {
       '#C9A876': [
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop'
+        '/images/1/1.webp',
+        '/images/1/2.webp',
+        '/images/1/3.webp'
       ],
       '#8B7355': [
-        'https://images.unsplash.com/photo-1517770413964-df8ca61194a6?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop'
+        '/images/1/2.webp',
+        '/images/1/3.webp',
+        '/images/1/4.webp'
       ],
       '#D4B896': [
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop'
+        '/images/1/3.webp',
+        '/images/1/4.webp',
+        '/images/1/5.webp'
       ],
       '#A0826D': [
-        'https://images.unsplash.com/photo-1517770413964-df8ca61194a6?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop'
+        '/images/1/4.webp',
+        '/images/1/5.webp',
+        '/images/1/1.webp'
       ]
     }
   },
@@ -38,20 +48,25 @@ export const products: IProduct[] = [
     colors: ['#E6D5B8', '#B89B6D', '#F5E6D3', '#C9A876'],
     images: {
       '#E6D5B8': [
-        'https://images.unsplash.com/photo-1582765872397-0372c3dddc67?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop'
+        '/images/2/1.webp',
+        '/images/2/2.webp',
+        '/images/2/3.webp'
       ],
       '#B89B6D': [
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1517770413964-df8ca61194a6?w=800&h=600&fit=crop'
+        '/images/2/2.webp',
+        '/images/2/3.webp',
+        '/images/2/4.webp'
       ],
       '#F5E6D3': [
-        'https://images.unsplash.com/photo-1582765872397-0372c3dddc67?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop'
+        '/images/2/3.webp',
+        '/images/2/4.webp',
+        '/images/2/5.webp'
       ],
       '#C9A876': [
-        'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1517770413964-df8ca61194a6?w=800&h=600&fit=crop'
+        '/images/2/4.webp',
+        '/images/2/5.webp',
+        '/images/2/6.webp',
+        '/images/2/7.webp'
       ]
     }
   },
